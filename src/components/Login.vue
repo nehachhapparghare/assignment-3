@@ -1,0 +1,116 @@
+<template>
+  <v-content>
+    <v-container fluid fill-height>
+      <v-layout align-center justify-center>
+        <v-flex xs12 sm6 md4>
+          <v-card class="elevation-12">
+            <v-toolbar class="cyan lighten-3">
+              <v-toolbar-title justify-center class="font-weight-medium">Login Form</v-toolbar-title>
+              <v-spacer></v-spacer>
+            </v-toolbar>
+            <v-card-text>
+              <v-layout>
+                <v-flex xs12>
+                  <v-text-field
+                    class="inputs"
+                    v-model="userId"
+                    :rules="emailRules()"
+                    label="E-mail :"
+                    required
+                  ></v-text-field>
+                </v-flex>
+              </v-layout>
+              <v-layout>
+                <v-flex xs12>
+                  <v-text-field
+                    class="inputs"
+                    type="password"
+                    v-model="password"
+                    :rules="passwordRules()"
+                    label="Password :"
+                    required
+                  ></v-text-field>
+                </v-flex>
+              </v-layout>
+            </v-card-text>
+            <v-card-actions>
+              <v-spacer></v-spacer>
+              <v-btn
+                dark
+                class="cyan lighten-3 darken-3 elevation-6"
+                v-on:click="getCredentials"
+              >Login</v-btn>
+              <v-spacer></v-spacer>
+            </v-card-actions>
+          </v-card>
+        </v-flex>
+      </v-layout>
+      <!-- <v-layout align-center justify-center > -->
+      <v-dialog v-model="dialog" max-width="290">
+        <v-card>
+          <v-card-title class="headline">Loggin Successfull</v-card-title>
+          <v-card-action v-on:click="loginSucess()">OK</v-card-action>
+        </v-card>
+      </v-dialog>
+      <!-- </v-layout> -->
+      <v-snackbar v-model="snackbar" :top="y === 'top'">
+        {{ text }}
+        <v-btn color="pink" flat @click="snackbar = false">Close</v-btn>
+      </v-snackbar>
+    </v-container>
+  </v-content>
+</template>
+
+<script>
+  export default {
+    data: () => ({
+      errors: [],
+      data: "",
+      userId: "",
+      password: "",
+      dialog: false,
+      snackbar: false,
+      y: "top",
+      x: null,
+      mode: "",
+      timeout: 6000,
+      text: "Fill all the credentials",
+      type: "",
+      details: [],
+      logged: ""
+    }),
+
+    methods: {
+      emailRules() {
+        return [
+          v => !!v || "E-mail is required",
+          v => /[a-zA-Z]+\.[a-zA-Z]+/.test(v) || "E-mail must be valid"
+        ];
+      },
+      passwordRules() {
+        return [v => !!v || "Password is required"];
+      },
+      getCredentials() {
+        console.log(this.$store.getters.userLogin.users, "users in login");
+        this.$store.getters.userLogin.users.filter(el => {
+          if (el.userId == this.userId && el.password == this.password) { 
+            localStorage.setItem("id", el.id);
+            this.dialog = true;
+          }
+          if (this.userId.length == 0 && this.password.length == 0) {
+            this.snackbar = true;
+          }
+        });
+      },
+      loginSucess(id) {
+        this.logged = localStorage.getItem("id");
+        this.$store.dispatch("specificUser", this.logged);
+        //   this.$router.push('./');
+      }
+    }
+  };
+</script>
+
+
+<style>
+</style>

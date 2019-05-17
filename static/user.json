@@ -1,0 +1,83 @@
+{
+    "users": [
+        {
+            "name": "Marissa",
+            "lastName": "Mayer",
+            "dp": "images/merrisa.jpg",
+            "userId": "Marissa.mayer",
+            "password": "12345",
+			"id": 1,
+            "followedUsers": [
+                "natgeo",
+                "tripoto"
+            ]
+        },
+        {
+            "name": "Eric",
+            "lastName": "Schmidt",
+            "dp": "images/eric.jpg",
+            "userId": "eric.schmidt",
+            "password": "12345",
+			"id": 2,
+            "followedUsers": [
+                "natgeo",
+                "tripoto",
+                "younews"
+            ]
+        },
+        {
+            "name": "elon",
+            "lastName": "musk",
+            "dp": "images/elon.png",
+            "userId": "elon.musk",
+            "password": "12345",
+			"id": 3,
+            "followedUsers": [
+                "yourstory",
+                "younews"
+            ]
+        },
+        {
+            "name": "Your Story",
+            "lastName": "",
+            "dp": "images/yourstory.png",
+            "userId": "yourstory",
+            "password": "12345",
+			"id": 4,
+            "followedUsers": ["yourstory"]
+        },
+        {
+            "name": "National Geopraphic",
+            "lastName": "",
+            "dp": "images/natgeo.jpg",
+            "userId": "natgeo",
+            "password": "12345",
+			"id": 5,
+            "followedUsers": [
+                "natgeo"
+            ]
+        },
+        {
+            "name": "Tripoto",
+            "lastName": "",
+            "dp": "images/tripoto.jpg",
+            "userId": "tripoto",
+            "password": "12345",
+			"id": 6,
+            "followedUsers": [
+                "tripoto"
+            ]
+        },
+        {
+            "name": "You News",
+            "lastName": "",
+            "dp": "images/younews.png",
+            "userId": "younews",
+            "password": "12345",
+			"id": 7,
+            "followedUsers": [
+                "younews"
+            ]
+        }
+    ]
+}
