@@ -1,10 +1,10 @@
 <template>
   <v-content>
     <v-container fluid fill-height>
-      <v-layout align-center justify-center>
+      <v-layout align-center justify-center v-if="!flag">
         <v-flex xs12 sm6 md4>
           <v-card class="elevation-12">
-            <v-toolbar class="cyan lighten-3">
+            <v-toolbar class="teal lighten-3">
               <v-toolbar-title justify-center class="font-weight-medium">Login Form</v-toolbar-title>
               <v-spacer></v-spacer>
             </v-toolbar>
@@ -35,24 +35,32 @@
             </v-card-text>
             <v-card-actions>
               <v-spacer></v-spacer>
-              <v-btn
-                dark
-                class="cyan lighten-3 darken-3 elevation-6"
-                v-on:click="getCredentials"
-              >Login</v-btn>
+              <v-btn dark class="teal darken-3 elevation-6" v-on:click="getCredentials">Login</v-btn>
               <v-spacer></v-spacer>
             </v-card-actions>
           </v-card>
         </v-flex>
       </v-layout>
-      <!-- <v-layout align-center justify-center > -->
-      <v-dialog v-model="dialog" max-width="290">
-        <v-card>
-          <v-card-title class="headline">Loggin Successfull</v-card-title>
-          <v-card-action v-on:click="loginSucess()">OK</v-card-action>
-        </v-card>
-      </v-dialog>
-      <!-- </v-layout> -->
+      <v-layout align-center justify-center v-if="flag">
+        <v-flex xs12 sm4 md2>
+          <v-card class="elevation-3">
+            <v-toolbar class="teal lighten-3">
+              <v-spacer></v-spacer>
+              <v-toolbar-title>
+                <h1>Login Status</h1>
+              </v-toolbar-title>
+              <v-spacer></v-spacer>
+            </v-toolbar>
+            <v-card-text align-center>
+              <h2>Login Sucessfull !!</h2>
+            </v-card-text>
+            <v-card-actions>
+              <v-spacer></v-spacer>
+              <v-btn color="green darken-3" flat="flat" v-on:click="loginSucess('./home')">Yes</v-btn>
+            </v-card-actions>
+          </v-card>
+        </v-flex>
+      </v-layout>
       <v-snackbar v-model="snackbar" :top="y === 'top'">
         {{ text }}
         <v-btn color="pink" flat @click="snackbar = false">Close</v-btn>
@@ -68,7 +76,7 @@
       data: "",
       userId: "",
       password: "",
-      dialog: false,
+      flag: false,
       snackbar: false,
       y: "top",
       x: null,
@@ -76,6 +84,7 @@
       timeout: 6000,
       text: "Fill all the credentials",
       type: "",
+      name: "",
       details: [],
       logged: ""
     }),
@@ -93,19 +102,19 @@
       getCredentials() {
         console.log(this.$store.getters.userLogin.users, "users in login");
         this.$store.getters.userLogin.users.filter(el => {
-          if (el.userId == this.userId && el.password == this.password) { 
-            localStorage.setItem("id", el.id);
-            this.dialog = true;
+          if (el.userId == this.userId && el.password == this.password) {
+            this.flag = true;
+            localStorage.setItem("name", el.name);
           }
           if (this.userId.length == 0 && this.password.length == 0) {
             this.snackbar = true;
           }
         });
       },
-      loginSucess(id) {
-        this.logged = localStorage.getItem("id");
+      loginSucess(name) {
+        this.logged = localStorage.getItem("name");
         this.$store.dispatch("specificUser", this.logged);
-        //   this.$router.push('./');
+        this.$router.push(name);
       }
     }
   };

@@ -1,17 +1,11 @@
 <template>
   <v-card>
-    <v-toolbar color="teal lighten-3" fixed app >
-      <h1>Welcome</h1>
+    <v-toolbar color="teal lighten-3" fixed app>
+      <v-toolbar-side-icon v-on:click="drawer = !drawer"></v-toolbar-side-icon>
       <v-spacer></v-spacer>
-      <v-text-field
-        v-model="search"
-        class="blue-grey--text"
-        append-icon="search"
-        label="Search"
-        v-on:keyup="searchFunction(search)"
-        single-line
-        hide-details
-      ></v-text-field>
+
+      <h1 class="ml-4">Welcome</h1>
+
       <v-spacer></v-spacer>
       <v-avatar size="50" color="grey lighten-4" class="mousePointer">
         <v-img :src="showLoggedInUser.dp"></v-img>
@@ -28,15 +22,21 @@
         </v-card-actions>
       </v-card>
     </v-dialog>
+    <app-navigation :drawer="drawer"></app-navigation>
   </v-card>
 </template>
 
 <script>
+  import Navigation from "./Navigation.vue";
+
   export default {
+    components: {
+      "app-navigation": Navigation
+    },
     data: () => ({
-      search: "",
       name: "",
-      dialog: false
+      dialog: false,
+      drawer: false
     }),
     computed: {
       showLoggedInUser() {
@@ -49,17 +49,8 @@
         console.log("called logout");
       },
       loggOut() {
-        localStorage.removeItem("id");
+        localStorage.removeItem("name");
         this.$router.push("./");
-      },
-      searchFunction(search) {
-        if (search == "") {
-          console.log("empty");
-          this.$store.dispatch("loadData", "./static/feeds.json");
-        } else {
-          console.log("searchFunction called", search);
-          this.$store.dispatch("searchData", search);
-        }
       }
     }
   };
@@ -72,5 +63,4 @@
   .mousePointer {
     cursor: pointer;
   }
-  
 </style>
