@@ -5,7 +5,7 @@
         <v-flex xs12 md8 mx-2>
           <v-card class="elevation-3">
             <v-card-title>
-              <h1>Feeds</h1>
+          
               <v-spacer></v-spacer>
               <v-text-field
                 v-model="search"

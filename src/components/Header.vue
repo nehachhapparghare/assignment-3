@@ -2,8 +2,6 @@
   <v-card>
     <v-toolbar color="teal lighten-3" fixed app>
       <v-toolbar-side-icon v-on:click="drawer = !drawer"></v-toolbar-side-icon>
-      <v-spacer></v-spacer>
-
       <h1 class="ml-4">Welcome</h1>
 
       <v-spacer></v-spacer>

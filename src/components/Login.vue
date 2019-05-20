@@ -45,11 +45,9 @@
         <v-flex xs12 sm4 md2>
           <v-card class="elevation-3">
             <v-toolbar class="teal lighten-3">
-              <v-spacer></v-spacer>
               <v-toolbar-title>
-                <h1>Login Status</h1>
+                <h3>Login Status</h3>
               </v-toolbar-title>
-              <v-spacer></v-spacer>
             </v-toolbar>
             <v-card-text align-center>
               <h2>Login Sucessfull !!</h2>
