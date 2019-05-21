@@ -4,7 +4,7 @@ export const userModule = {
   state: {
     userDetails: {},
     userLogged: '',
-    practice:[]
+    practice: []
   },
   getters: {
     userLogin(state) {
@@ -15,7 +15,7 @@ export const userModule = {
       console.log(state.userLogged)
       return state.userLogged;
     },
-   
+
   },
   actions: {
     checkData({ commit }, url) {
@@ -29,7 +29,7 @@ export const userModule = {
     specificUser({ commit }, loggInUser) {
       commit('getspecificUser', loggInUser)
     },
-   
+
   },
   mutations: {
     getUserData(state, credential) {
@@ -37,14 +37,13 @@ export const userModule = {
       console.log(state.userDetails, 'user in mutations');
     },
     getspecificUser(state, loggInUser) {
-      console.log(state.userDetails);
       state.userDetails.filter(el => {
-        if (el.name == loggInUser) {
+        if (el.id == loggInUser) {
           state.userLogged = el;
         }
       });
     },
-    
+
   },
 
 }

@@ -1,5 +1,5 @@
 <template>
-  <v-navigation-drawer class="teal lighten-3" v-model="drawer" app clipped:true>
+  <v-navigation-drawer class="teal lighten-3" v-model="drawer" app clipped:cip>
     <v-list>
       <v-list-tile class="cursorPoiner">
         <v-list-tile-action>
@@ -25,7 +25,8 @@
   export default {
     props: {
       drawer: {
-        type: Boolean
+        type: Boolean,
+        cip: true
       }
     },
     data() {

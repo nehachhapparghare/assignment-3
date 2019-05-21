@@ -1,0 +1,20 @@
+{
+    "headers": [
+        {
+            "text": "Type",
+            "value": "type"
+        },
+        {
+            "text": "Title",
+            "value": "title"
+        },
+        {
+            "text": "Input",
+            "value": "input"
+        },
+        {
+            "text": "Select",
+            "value": "select"
+        }
+    ]
+}

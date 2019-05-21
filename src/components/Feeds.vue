@@ -75,9 +75,9 @@
     }),
 
     created() {
-      this.$store.dispatch("loadHeaderData", "./static/feeds.json");
+      this.$store.dispatch("loadHeaderData", "./static/headers.json");
       this.$store.dispatch("loadData", "./static/feeds.json");
-      this.$store.dispatch("loadDropDown", "./static/feeds.json");
+      this.$store.dispatch("loadDropDown", "./static/items.json");
     },
 
     computed: {

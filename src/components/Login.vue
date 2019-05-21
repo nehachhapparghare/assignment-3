@@ -60,8 +60,6 @@
 <script>
   export default {
     data: () => ({
-      errors: [],
-      data: "",
       userId: "",
       password: "",
       flag: false,
@@ -70,11 +68,7 @@
       x: null,
       mode: "",
       timeout: 6000,
-      text: "Fill all the credentials",
-      type: "",
-      name: "",
-      details: [],
-      logged: ""
+      text: "Fill all the credentials"
     }),
 
     methods: {
@@ -92,7 +86,7 @@
         this.$store.getters.userLogin.filter(el => {
           if (el.userId == this.userId && el.password == this.password) {
             this.flag = true;
-            localStorage.setItem("name", el.name);
+            localStorage.setItem("id", el.id);
           }
           if (this.userId.length == 0 && this.password.length == 0) {
             this.snackbar = true;
@@ -100,8 +94,8 @@
         });
       },
       loginSucess(name) {
-        this.logged = localStorage.getItem("name");
-        this.$store.dispatch("specificUser", this.logged);
+        let loginUser = localStorage.getItem("id");
+        this.$store.dispatch("specificUser", loginUser);
         this.$router.push(name);
       }
     }

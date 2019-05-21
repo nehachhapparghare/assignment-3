@@ -18,7 +18,6 @@ export default {
   },
   data: () => ({
     isAuthenticated: false,
-    name: ""
   }),
   updated() {
     if (this.$route.name == "feeds") {
@@ -33,14 +32,14 @@ export default {
   created() {
     console.log(this.$route);
     this.$store.dispatch("checkData", "./static/user.json").then(() => {
-      this.name = localStorage.getItem("name");
-      console.log(this.name, "name of loggin user");
-      if (this.name == undefined) {
+      let id = localStorage.getItem("id");
+      console.log(id, "id of loggin user");
+      if (id == undefined) {
         console.log("nothing in localStorage");
         this.$router.push("./");
       } else {
         console.log(" in localStorage");
-        this.$store.dispatch("specificUser", this.name);
+        this.$store.dispatch("specificUser", id);
       }
     });
   }

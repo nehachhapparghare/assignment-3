@@ -138,42 +138,5 @@
             "like": 0,
             "comment": ""
         }
-    ],
-    "headers": [
-        
-        {
-            "text": "Type",
-            "value": "type"
-        },
-        {
-            "text": "Title",
-            "value": "title"
-        },
-        {
-            "text": "Input",
-            "value": "input"
-        },
-        {
-            "text": "Select",
-            "value": "select"
-        }
-    ],
-    "items": [
-        {
-            "item": "Share...",
-            "value": "share"
-        },
-        {
-            "item": "Unfollow",
-            "value": "unfollow"
-        },
-        {
-            "item": "Report...",
-            "value": "report"
-        },
-        {
-            "item": "Mute",
-            "value": "mute"
-        }
     ]
 }
