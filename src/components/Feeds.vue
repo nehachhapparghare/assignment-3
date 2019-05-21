@@ -5,7 +5,6 @@
         <v-flex xs12 md8 mx-2>
           <v-card class="elevation-3">
             <v-card-title>
-          
               <v-spacer></v-spacer>
               <v-text-field
                 v-model="search"
@@ -95,11 +94,6 @@
     },
 
     methods: {
-      resetItems() {
-        this.$store.dispatch("resetList");
-        this.flag = true;
-        this.costPrice = 0;
-      },
       toggleAll() {
         if (this.selected.length) this.selected = [];
         else this.selected = this.list.slice();

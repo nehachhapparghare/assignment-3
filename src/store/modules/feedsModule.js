@@ -50,10 +50,7 @@ export const feedsModule = {
       state.headers = headers;
     },
     getDropDown(state, items) {
-      let abc = items.filter(el => {
-        state.dropDownItem.push(el.item);
-        return false;
-      });
+      state.dropDownItem = items.filter(a => a.item).map(q => q.item);
       console.log(state.dropDownItem, "items in mutations");
     }
   }

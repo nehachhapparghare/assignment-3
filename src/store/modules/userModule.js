@@ -22,7 +22,7 @@ export const userModule = {
       return new Promise((resolve) => {
         serviceCall(url).then(credentials => {
           resolve(credentials);
-          commit('getUserData', credentials)
+          commit('getUserData', credentials.users)
         });
       })
     },
@@ -32,13 +32,13 @@ export const userModule = {
    
   },
   mutations: {
-    getUserData(state, credentials) {
-      state.userDetails = credentials;
+    getUserData(state, credential) {
+      state.userDetails = credential;
       console.log(state.userDetails, 'user in mutations');
     },
     getspecificUser(state, loggInUser) {
       console.log(state.userDetails);
-      state.userDetails.users.filter(el => {
+      state.userDetails.filter(el => {
         if (el.name == loggInUser) {
           state.userLogged = el;
         }
