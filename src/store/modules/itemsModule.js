@@ -2,13 +2,15 @@ import { serviceCall } from "../../service.js";
 
 export const itemsModule = {
     state: {
-        dropDownItem: []
+        dropDownItem: [],
+
     },
     getters: {
         getItems(state) {
             console.log(state.dropDownItem, "items in getters");
             return state.dropDownItem;
-        }
+        },
+
     },
     actions: {
         loadDropDown({ commit }, url) {
@@ -22,7 +24,7 @@ export const itemsModule = {
         getDropDown(state, items) {
             state.dropDownItem = items.filter(a => a.item).map(q => q.item);
             console.log(state.dropDownItem, "items in mutations");
-        }
+        },
     }
 }
 

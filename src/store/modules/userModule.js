@@ -2,9 +2,8 @@ import { serviceCall } from "../../service.js";
 
 export const userModule = {
   state: {
-    userDetails: {},
-    userLogged: '',
-    practice: []
+    userDetails: [],
+    userLogged: ''
   },
   getters: {
     userLogin(state) {
@@ -37,7 +36,7 @@ export const userModule = {
       console.log(state.userDetails, 'user in mutations');
     },
     getspecificUser(state, loggInUser) {
-      state.userDetails.filter(el => {
+      state.userDetails.find(el => {
         if (el.id == loggInUser) {
           state.userLogged = el;
         }

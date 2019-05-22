@@ -1,6 +1,10 @@
 {
     "headers": [
         {
+            "text": "Sr. no.",
+            "value": "srno"
+        },
+        {
             "text": "Type",
             "value": "type"
         },
@@ -9,8 +13,8 @@
             "value": "title"
         },
         {
-            "text": "Input",
-            "value": "input"
+            "text": "Comment",
+            "value": "comment"
         },
         {
             "text": "Select",

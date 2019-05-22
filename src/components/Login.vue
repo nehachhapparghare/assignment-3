@@ -45,7 +45,7 @@
         <v-card>
           <v-card-title class="headline">Login Successfull !!!</v-card-title>
           <v-card-actions>
-            <v-btn color="green darken-3" flat="flat" v-on:click="loginSucess('./home')">Yes</v-btn>
+            <v-btn color="green darken-3" flat="flat" v-on:click="loginSucess('./home')">OK</v-btn>
           </v-card-actions>
         </v-card>
       </v-dialog>

@@ -1,8 +1,8 @@
 <template>
   <v-card>
-    <v-toolbar color="teal lighten-3" fixed app>
-      <v-toolbar-side-icon v-on:click="drawer = !drawer"></v-toolbar-side-icon>
-      <h1 class="ml-4">Welcome</h1>
+    <v-toolbar color="teal lighten-3" fixed absolute app>
+      <v-toolbar-side-icon v-on:click="drawer = !drawer" class="headTxt"></v-toolbar-side-icon>
+      <h1 class="ml-4 headTxt">Welcome</h1>
 
       <v-spacer></v-spacer>
       <v-avatar size="50" color="grey lighten-4" class="mousePointer">
@@ -61,4 +61,5 @@
   .mousePointer {
     cursor: pointer;
   }
+ 
 </style>

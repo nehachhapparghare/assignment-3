@@ -40,18 +40,29 @@
                 </tr>
               </template>
               <template v-slot:items="props">
-                <tr :active="props.selected">
+                <tr :active="props.selected" >
                   <td>
                     <v-checkbox :input-value="props.selected" primary hide-details></v-checkbox>
                   </td>
+                  <td class="text-center subheading">{{ props.item.id }}</td>
                   <td class="text-center subheading">{{ props.item.type }}</td>
                   <td class="text-center subheading">{{ props.item.title }}</td>
                   <td class="text-center subheading">
-                    <v-text-field></v-text-field>
+                    <v-text-field
+                      v-model="props.item.comment"
+                      v-on:keyup.enter="getComment(props.item.comment)"
+                    ></v-text-field>
                   </td>
                   <td>
-                    <v-flex xs12 mt-4>
-                      <v-select :items="getItem" label="Select" solo flat class="subheading"></v-select>
+                    <v-flex xs12 mt-4 v-on:click="getSelectedItem(props.item.item)">
+                      <v-select
+                        :items="getItem"
+                        label="Select"
+                        solo
+                        flat
+                        class="subheading"
+                        v-model="props.item.item"
+                      ></v-select>
                     </v-flex>
                   </td>
                 </tr>
@@ -71,7 +82,9 @@
       selected: [],
       list: [],
       item: [],
-      search: ""
+      search: "",
+      comment: "",
+      select: ""
     }),
 
     created() {
@@ -85,7 +98,6 @@
         return this.$store.getters.getHeaders;
       },
       getList() {
-        this.list = this.$store.getters.getFeeds;
         return this.$store.getters.getFeeds;
       },
       getItem() {
@@ -96,7 +108,20 @@
     methods: {
       toggleAll() {
         if (this.selected.length) this.selected = [];
-        else this.selected = this.list.slice();
+        else this.selected = this.getList.slice();
+      },
+      showFeedDetails(field, select) {
+        console.log(select);
+      },
+      getComment(comment) {
+        this.comment = comment;
+        console.log(this.comment);
+      },
+      getFeedDetails(feed) {
+        console.log(feed);
+      },
+      getSelectedItem(item) {
+        console.log(item);
       }
     }
   };
