@@ -3,7 +3,7 @@
     <v-container fluid fill-height>
       <v-layout align-center justify-center row fill-height>
         <v-flex xs12 md8 mx-2>
-          <v-card class="elevation-3" >
+          <v-card class="elevation-3">
             <v-card-title>
               <v-spacer></v-spacer>
               <v-text-field
@@ -40,7 +40,7 @@
                 </tr>
               </template>
               <template v-slot:items="props">
-                <tr :active="props.selected">
+                <tr :active="props.selected" @click="props.selected = !props.selected">
                   <td>
                     <v-checkbox :input-value="props.selected" primary hide-details></v-checkbox>
                   </td>
@@ -66,6 +66,9 @@
                 </tr>
               </template>
             </v-data-table>
+            <v-card-actions>
+              <v-btn v-on:click="showSelectedFeeds">Show</v-btn>
+            </v-card-actions>
           </v-card>
         </v-flex>
       </v-layout>
@@ -82,7 +85,8 @@
       search: "",
       comment: "",
       select: "",
-      selectedItem: ""
+      selectedItem: "",
+      selectedFeeds: []
     }),
 
     created() {
@@ -110,6 +114,11 @@
       },
       showFeed(item) {
         console.log(item);
+      },
+      showSelectedFeeds() {
+        let feeds = [];
+        this.selectedFeeds = feeds.concat(this.selected);
+        console.log(this.selectedFeeds);
       }
     }
   };
