@@ -40,9 +40,14 @@
                 </tr>
               </template>
               <template v-slot:items="props">
-                <tr :active="props.selected" >
+                <tr :active="props.selected">
                   <td>
-                    <v-checkbox :input-value="props.selected" primary hide-details></v-checkbox>
+                    <v-checkbox
+                      :input-value="props.selected"
+                      primary
+                      hide-details
+                      v-on:click="getFeedDetails(props.item)"
+                    ></v-checkbox>
                   </td>
                   <td class="text-center subheading">{{ props.item.id }}</td>
                   <td class="text-center subheading">{{ props.item.type }}</td>
@@ -84,7 +89,8 @@
       item: [],
       search: "",
       comment: "",
-      select: ""
+      select: "",
+      selectedItem: ""
     }),
 
     created() {
@@ -118,9 +124,13 @@
         console.log(this.comment);
       },
       getFeedDetails(feed) {
+        if(this.selected){
+          
+        }
         console.log(feed);
       },
       getSelectedItem(item) {
+        this.selectedItem = item;
         console.log(item);
       }
     }
