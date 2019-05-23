@@ -124,14 +124,13 @@
         console.log(this.comment);
       },
       getFeedDetails(feed) {
-        if(this.selected){
-          
+        if (this.selectedItem) {
+          feed[this.selectedItem] = this.selected;
         }
         console.log(feed);
       },
       getSelectedItem(item) {
         this.selectedItem = item;
-        console.log(item);
       }
     }
   };
