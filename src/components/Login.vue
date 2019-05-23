@@ -3,7 +3,7 @@
     <v-container fluid fill-height>
       <v-layout align-center justify-center>
         <v-flex xs12 sm6 md4>
-          <v-card class="elevation-12">
+          <v-card class="elevation-12" color="teal lighten-5">
             <v-toolbar class="teal lighten-3">
               <v-toolbar-title justify-center class="font-weight-medium">Login Form</v-toolbar-title>
               <v-spacer></v-spacer>

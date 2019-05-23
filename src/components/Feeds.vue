@@ -3,7 +3,7 @@
     <v-container fluid fill-height>
       <v-layout align-center justify-center row fill-height>
         <v-flex xs12 md8 mx-2>
-          <v-card class="elevation-3">
+          <v-card class="elevation-3" color="teal lighten-5">
             <v-card-title>
               <v-spacer></v-spacer>
               <v-text-field
@@ -14,7 +14,7 @@
                 hide-details
               ></v-text-field>
             </v-card-title>
-            <v-data-table
+            <v-data-table 
               :headers="getHeaders"
               :items="getList"
               hide-actions
