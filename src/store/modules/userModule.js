@@ -7,11 +7,9 @@ export const userModule = {
   },
   getters: {
     userLogin(state) {
-      console.log(state.userDetails, "users in getters");
       return state.userDetails;
     },
     getspecificUserID(state) {
-      console.log(state.userLogged)
       return state.userLogged;
     },
 
@@ -33,7 +31,6 @@ export const userModule = {
   mutations: {
     getUserData(state, credential) {
       state.userDetails = credential;
-      console.log(state.userDetails, 'user in mutations');
     },
     getspecificUser(state, loggInUser) {
       state.userDetails.find(el => {

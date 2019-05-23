@@ -7,7 +7,6 @@ export const feedsModule = {
   },
   getters: {
     getFeeds(state) {
-      console.log(state.feeds, "feeds in getters");
       return state.feeds;
     }
   },
@@ -20,7 +19,6 @@ export const feedsModule = {
   },
   mutations: {
     getFeedsData(state, posts) {
-      console.log(posts, "feeds in mutations");
       state.feeds = posts;
     }
   }

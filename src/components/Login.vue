@@ -82,7 +82,6 @@
         return [v => !!v || "Password is required"];
       },
       getCredentials() {
-        console.log(this.$store.getters.userLogin.users, "users in login");
         this.$store.getters.userLogin.filter(el => {
           if (el.userId == this.userId && el.password == this.password) {
             this.flag = true;

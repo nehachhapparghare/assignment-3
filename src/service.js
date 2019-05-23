@@ -5,7 +5,6 @@ export function serviceCall(url) {
         axios
             .get(url)
             .then(response => {
-                console.log("axios call of users")
                 return resolve(response.data);
             })
             .catch(error => {

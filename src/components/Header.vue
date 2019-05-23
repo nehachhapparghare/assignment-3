@@ -44,7 +44,6 @@
     methods: {
       showLoggOut() {
         this.dialog = true;
-        console.log("called logout");
       },
       loggOut() {
         localStorage.removeItem("name");

@@ -113,12 +113,12 @@
         else this.selected = this.getList.slice();
       },
       showFeed(item) {
-        console.log(item);
+        console.log(item); //console
       },
       showSelectedFeeds() {
         let feeds = [];
         this.selectedFeeds = feeds.concat(this.selected);
-        console.log(this.selectedFeeds);
+        console.log(this.selectedFeeds); //console
       }
     }
   };

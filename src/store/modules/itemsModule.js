@@ -7,7 +7,6 @@ export const itemsModule = {
     },
     getters: {
         getItems(state) {
-            console.log(state.dropDownItem, "items in getters");
             return state.dropDownItem;
         },
 
@@ -23,7 +22,6 @@ export const itemsModule = {
     mutations: {
         getDropDown(state, items) {
             state.dropDownItem = items.filter(a => a.item).map(q => q.item);
-            console.log(state.dropDownItem, "items in mutations");
         },
     }
 }

@@ -6,7 +6,6 @@ export const headerModule = {
     },
     getters: {
         getHeaders(state) {
-            console.log(state.headers);
             return state.headers;
         }
     },
@@ -19,7 +18,6 @@ export const headerModule = {
     },
     mutations: {
         getHeadersData(state, headers) {
-            console.log(headers, "headers in mutations");
             state.headers = headers;
         }
     }
